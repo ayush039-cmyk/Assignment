@@ -9,7 +9,7 @@ pipeline{
       stage('Log In To Docker'){
         steps{
           withCredentials([
-             usernamePassword( credentialsID:'docker-creds', usernameVariable:'USERNAME' , passwordVariable:'PASSWORD')]) {
+             usernamePassword( credentialsId:'docker-creds', usernameVariable:'USERNAME' , passwordVariable:'PASSWORD')]) {
                 sh "echo ${PASSWORD} | docker login -u ${USERNAME} --password-stdin"}
                  echo "Login Successful"
               }
@@ -29,7 +29,7 @@ pipeline{
         stage('SSH to server and deploy redeploy the docker-compose'){
           steps{
             withCredentials([
-                 sshUserPrivateKey(credentialsID: 'ssh-key', keyFileVariable: 'MY_SSH_KEY' , usernameVariable: 'username')]) {
+                 sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'MY_SSH_KEY' , usernameVariable: 'username')]) {
                       sh '''ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no ${username}@${SERVER_IP} << EOF
                          docker-compose down
                          docker-compose up -d
