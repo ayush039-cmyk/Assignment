@@ -31,6 +31,7 @@ pipeline{
             withCredentials([
                  sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'MY_SSH_KEY' , usernameVariable: 'username')]) {
                       sh '''ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no ${username}@${SERVER_IP} << EOF
+                         cd Assignment
                          docker compose pull
                          docker compose down
                          docker compose up -d
