@@ -39,7 +39,6 @@ To achieve continuous deployment, I set up a Jenkins pipeline triggered by GitHu
 
     Deploy: Automatically pulls the new images on the AWS server and restarts the containers using Docker Compose, ensuring zero-to-minimal downtime.
 
-#### Note: if you want to deploy the docker compose locally kindly navigate to ->frontend->src->app->services->toturial.service.ts and in baseUrl make it 'http://localhost:8080/api/tutorials'
 <img width="1843" height="960" alt="UI" src="https://github.com/user-attachments/assets/a810675a-60be-43ef-9483-7916fa2d7ac6" />
 <img width="1843" height="960" alt="UI-2" src="https://github.com/user-attachments/assets/ebfa35aa-6278-4f37-8209-50d1d79794ab" />
 <img width="1843" height="960" alt="UI-3" src="https://github.com/user-attachments/assets/dd109a66-20db-4663-af28-96ae4f9ed59a" />
